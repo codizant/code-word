@@ -10,7 +10,7 @@ public class DatabaseProperties {
 	private String url;
 	private String username;
 	private String password;
-	private String driverClass ;
+	private String driverClass="oracle.jdbc.driver.OracleDriver" ;
 	
 	
 	public String getUrl() {
