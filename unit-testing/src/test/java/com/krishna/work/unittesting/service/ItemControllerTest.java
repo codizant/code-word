@@ -1,4 +1,4 @@
-package com.krishna.work.unittesting.controller;
+package com.krishna.work.unittesting.service;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.mockito.Mockito.when;
 
+import com.krishna.work.unittesting.controller.ItemController;
 import com.krishna.work.unittesting.module.Item;
 import com.krishna.work.unittesting.service.ItemService;
 
@@ -42,7 +43,7 @@ public class ItemControllerTest {
 				.accept(MediaType.APPLICATION_JSON);
 
 		MvcResult result = mockMvc.perform(requestBuilder)
-				.andExpect(status().isOk())
+				.andExpect(status().isOk()) 
 				.andReturn();
 		
 		String expected= "{id:100,name: JavaBook, price :111.0, qty:1}";
@@ -53,7 +54,7 @@ public class ItemControllerTest {
 	
 	@Test
 	public void getItemFromBusinessTest() throws Exception {
-		logger.info("------------ItemControllerTest :: dumyItem-------------");
+		logger.info("Start------------ItemControllerTest :: getItemFromBusinessTest-------------");
 		
 		when(itemService.getItemFromService()).thenReturn(new Item(101, "SpringBook", 111.0, 5));
 		
@@ -65,10 +66,10 @@ public class ItemControllerTest {
 				.andExpect(content().json("{id:101,name: SpringBook, price :111.0, qty:5}"))
 				.andReturn();
 		
-		//String expected= "{id:101,name: SpringBook, price :111.0, qty:5}";
+		//String expected= "{id:101,name: SpringBook, price :111.0, qty:5}";		
+		//JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);	
 		
-		//JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);		
-		
+		logger.info("End------------ItemControllerTest :: getItemFromBusinessTest-------------");
 	}
 	
 }
