@@ -7,6 +7,7 @@ public class Item {
 	private double price;
 	private int qty;
 
+	Item(){}
 	public Item(int id, String name, double price, int qty) {
 		super();
 		this.id = id;
@@ -39,6 +40,7 @@ public class Item {
 		this.name = name;
 	}
 
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
@@ -47,5 +49,10 @@ public class Item {
 		this.qty = qty;
 	}
 	
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", price=" + price
+				+ ", qty=" + qty + "]";
+	}
 }
 

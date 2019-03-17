@@ -6,8 +6,6 @@ import org.skyscreamer.jsonassert.JSONAssert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.krishna.work.unittesting.service.ItemControllerTest;
-
 public class JSONAssertTest {
 	private static Logger logger = LoggerFactory
 			.getLogger(JSONAssertTest.class);
@@ -16,10 +14,12 @@ public class JSONAssertTest {
 	
 	@Test
 	public void testJson() throws JSONException{
+		
 		logger.info("-----JSONAssertTest :: testJson-----");
 		String expected= "{id:100,name: JavaBook, price :111.0, qty:1}";
 		
 		JSONAssert.assertEquals(expected, actual, false);
+		
 	}
 	
 }
